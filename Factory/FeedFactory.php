@@ -8,6 +8,8 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 use Nekland\Bundle\FeedBundle\Feed;
 use Nekland\Bundle\FeedBundle\Renderer\RendererInterface;
 use Nekland\Bundle\FeedBundle\Loader\LoaderInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 /**
  * This class represent an agnostic feed, Atom, Rss, etc..
@@ -16,8 +18,11 @@ use Nekland\Bundle\FeedBundle\Loader\LoaderInterface;
  * @author Yohan Giarelli <yohan@giarelli.org>
  * @author Nek' <nek.dev+github@gmail.com>
  */
-class FeedFactory extends ContainerAware
+class FeedFactory implements ContainerAwareInterface
 {
+
+    use ContainerAwareTrait;
+
     /**
      * Will contains all feeds.
      * @var array|Feed
